@@ -16,9 +16,13 @@ export default function App() {
       <div className="grain" />
       <header className="relative z-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
-          <NavLink to="/" className="flex items-center gap-3 group" aria-label="IROFIT — home">
-            <Logo size={28} animated={false} />
-            <Wordmark size="md" />
+          <NavLink to="/" className="flex items-center gap-2.5 md:gap-3 group shrink-0 mr-4" aria-label="IROFIT — home">
+            <Logo size={24} animated={false} className="md:hidden" />
+            <Logo size={28} animated={false} className="hidden md:block" />
+            <Wordmark
+              size="md"
+              className="!text-[11px] md:!text-sm !tracking-[0.32em] md:!tracking-[0.42em]"
+            />
           </NavLink>
           <nav className="flex items-center gap-7 md:gap-10 text-[11px] uppercase tracking-ultra">
             {navItems.map((item) => (
