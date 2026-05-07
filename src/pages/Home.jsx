@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import Mark from '../components/Mark.jsx';
+import Logo from '../components/Logo.jsx';
 
 const messages = [
   { lang: 'EN', text: 'Arriving soon.' },
@@ -97,9 +97,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* corner mark */}
-        <div className="absolute bottom-8 right-6 md:right-10 opacity-70">
-          <Mark size={36} />
+        {/* corner seal */}
+        <div className="absolute bottom-8 right-6 md:right-10 opacity-80">
+          <Logo size={48} />
         </div>
       </section>
 

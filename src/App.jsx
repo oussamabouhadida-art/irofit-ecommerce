@@ -1,6 +1,7 @@
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Mark from './components/Mark.jsx';
+import Logo from './components/Logo.jsx';
+import Wordmark from './components/Wordmark.jsx';
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -15,9 +16,9 @@ export default function App() {
       <div className="grain" />
       <header className="relative z-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
-          <NavLink to="/" className="flex items-center gap-3 group">
-            <Mark size={26} animated={false} />
-            <span className="font-display text-xl tracking-[0.32em]">IROFIT</span>
+          <NavLink to="/" className="flex items-center gap-3 group" aria-label="IROFIT — home">
+            <Logo size={28} animated={false} />
+            <Wordmark size="md" />
           </NavLink>
           <nav className="flex items-center gap-7 md:gap-10 text-[11px] uppercase tracking-ultra">
             {navItems.map((item) => (
