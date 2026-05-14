@@ -1,6 +1,5 @@
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Logo from './components/Logo.jsx';
 import Wordmark from './components/Wordmark.jsx';
 
 const navItems = [
@@ -16,13 +15,8 @@ export default function App() {
       <div className="grain" />
       <header className="relative z-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
-          <NavLink to="/" className="flex items-center gap-2.5 md:gap-3 group shrink-0 mr-4" aria-label="IROFIT — home">
-            <Logo size={24} animated={false} className="md:hidden" />
-            <Logo size={28} animated={false} className="hidden md:block" />
-            <Wordmark
-              size="md"
-              className="!text-[11px] md:!text-sm !tracking-[0.32em] md:!tracking-[0.42em]"
-            />
+          <NavLink to="/" className="shrink-0 mr-4" aria-label="IROfit — home">
+            <Wordmark size="md" className="!text-lg md:!text-xl" />
           </NavLink>
           <nav className="flex items-center gap-7 md:gap-10 text-[11px] uppercase tracking-ultra">
             {navItems.map((item) => (
@@ -69,10 +63,17 @@ export default function App() {
       </main>
 
       <footer className="relative z-20 border-t border-cream/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[10px] uppercase tracking-ultra text-cream/45">
-          <span>© {new Date().getFullYear()} IROFIT</span>
-          <span>Three Beats. One Heart.</span>
-          <span>Crafted slowly, on purpose.</span>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-ultra text-cream/50">
+          <span>© {new Date().getFullYear()} IROfit · irofit.fr</span>
+          <span className="font-display normal-case tracking-normal text-xs italic text-cream/65">
+            Three Beats. One Rhythm.
+          </span>
+          <a
+            href="mailto:team@irofit.fr"
+            className="hover:text-cream transition-colors"
+          >
+            team@irofit.fr
+          </a>
         </div>
       </footer>
     </div>

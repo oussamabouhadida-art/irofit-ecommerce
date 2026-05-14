@@ -1,62 +1,54 @@
 import { motion } from 'framer-motion';
 
-// IROFIT wordmark — Inter 300 with extreme tracking. The dot inside the "O"
-// is the invisible-center motif from the seal, made just barely visible.
+// IROfit wordmark — EB Garamond, "IRO" upright + "fit" italic.
+// Inspired by Asif Mulla typographic refinement: subtle, legible, considered.
 export default function Wordmark({
-  size = 'md', // 'sm' | 'md' | 'lg' | 'xl'
+  size = 'md', // 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   animated = false,
   className = '',
 }) {
   const sizes = {
-    sm: 'text-[11px]',
-    md: 'text-sm',
-    lg: 'text-lg',
-    xl: 'text-2xl md:text-3xl',
+    sm: 'text-base',
+    md: 'text-xl',
+    lg: 'text-3xl',
+    xl: 'text-5xl md:text-6xl',
+    '2xl': 'text-6xl md:text-8xl',
   };
 
-  const letters = 'IROFIT'.split('');
+  const content = (
+    <>
+      <span className="font-normal">IRO</span>
+      <span className="italic font-light">fit</span>
+    </>
+  );
 
   if (!animated) {
     return (
       <span
-        className={`font-sans font-light uppercase tracking-[0.42em] ${sizes[size]} ${className}`}
+        className={`font-display tracking-[0.02em] ${sizes[size]} ${className}`}
+        aria-label="IROfit"
       >
-        {letters.map((l, i) => (
-          <span key={i} className={l === 'O' ? 'relative' : ''}>
-            {l}
-            {l === 'O' && (
-              <span
-                aria-hidden
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-current opacity-50"
-              />
-            )}
-          </span>
-        ))}
+        {content}
       </span>
     );
   }
 
   return (
-    <span
-      className={`font-sans font-light uppercase tracking-[0.42em] ${sizes[size]} ${className}`}
+    <motion.span
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      className={`font-display tracking-[0.02em] ${sizes[size]} ${className}`}
+      aria-label="IROfit"
     >
-      {letters.map((l, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 + i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-          className={l === 'O' ? 'relative inline-block' : 'inline-block'}
-        >
-          {l}
-          {l === 'O' && (
-            <span
-              aria-hidden
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-current opacity-50"
-            />
-          )}
-        </motion.span>
-      ))}
-    </span>
+      {content}
+    </motion.span>
+  );
+}
+
+// Small italic sub-signature used under product line names ("Flow", "Fire", "Joy").
+export function Signature({ children, className = '' }) {
+  return (
+    <span className={`font-display italic font-normal ${className}`}>{children}</span>
   );
 }

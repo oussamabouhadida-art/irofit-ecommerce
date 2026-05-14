@@ -8,10 +8,9 @@ export default function Contact() {
   function onSubmit(e) {
     e.preventDefault();
     if (!email) return;
-    // Placeholder — no backend yet. Persist locally so the user sees feedback.
     try {
       const list = JSON.parse(localStorage.getItem('irofit:waitlist') || '[]');
-      list.push({ email, at: new Date().toISOString() });
+      list.push({ email, at: new Date().toISOString(), source: 'contact' });
       localStorage.setItem('irofit:waitlist', JSON.stringify(list));
     } catch {}
     setSent(true);
@@ -33,22 +32,27 @@ export default function Contact() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.08 }}
-            className="mt-8 font-display text-5xl md:text-6xl font-light leading-[1.05]"
+            className="mt-8 font-display text-5xl md:text-6xl font-normal leading-[1.05]"
           >
             Write to us.
             <br />
-            <em className="font-light text-cream/70">We answer slowly.</em>
+            <em className="italic font-light text-cream/75">We answer slowly.</em>
           </motion.h1>
 
           <div className="mt-12 space-y-6 text-cream/70 text-sm leading-relaxed">
             <Row label="Email">
-              <a href="mailto:hello@irofit.co" className="hover:text-cream transition-colors">
-                hello@irofit.co
+              <a href="mailto:team@irofit.fr" className="hover:text-cream transition-colors">
+                team@irofit.fr
               </a>
             </Row>
-            <Row label="Press">
-              <a href="mailto:press@irofit.co" className="hover:text-cream transition-colors">
-                press@irofit.co
+            <Row label="Instagram">
+              <a
+                href="https://www.instagram.com/iro.fit/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream transition-colors"
+              >
+                @iro.fit ↗
               </a>
             </Row>
             <Row label="Atelier">Paris · Casablanca</Row>
@@ -115,11 +119,11 @@ export default function Contact() {
                   transition={{ duration: 0.5 }}
                   className="py-6"
                 >
-                  <p className="font-display text-3xl md:text-4xl font-light leading-snug">
-                    Thank you. <em className="text-cream/70">We've heard you.</em>
+                  <p className="font-display text-3xl md:text-4xl font-normal leading-snug">
+                    Thank you. <em className="italic font-light text-cream/75">We've heard you.</em>
                   </p>
                   <p className="mt-4 text-cream/65 text-sm leading-relaxed">
-                    We'll write back when the first chapter is ready.
+                    We'll write back when the first chapter is ready — October 2026.
                   </p>
                 </motion.div>
               )}

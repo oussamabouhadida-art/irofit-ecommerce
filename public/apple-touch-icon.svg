@@ -1,10 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
   <rect width="180" height="180" rx="38" fill="#1A1612"/>
-  <circle cx="90" cy="90" r="68" fill="none" stroke="#F5F0EB" stroke-width="1.4" opacity="0.4"/>
-  <g stroke="#F5F0EB" stroke-linecap="round" fill="none">
-    <line x1="90" y1="22" x2="90" y2="68" stroke-width="6"/>
-    <line x1="148.88" y1="124" x2="109.86" y2="101.5" stroke-width="11"/>
-    <line x1="31.12" y1="124" x2="70.14" y2="101.5" stroke-width="3"/>
-  </g>
-  <circle cx="90" cy="90" r="3.4" fill="#F5F0EB" opacity="0.45"/>
+  <text x="90" y="132" text-anchor="middle"
+        font-family="EB Garamond, Garamond, Georgia, serif"
+        font-size="128" font-style="italic" font-weight="400"
+        fill="#F5F0EB">i</text>
 </svg>

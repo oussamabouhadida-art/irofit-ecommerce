@@ -7,10 +7,11 @@ export default {
         ink: '#1A1612',
         cream: '#F5F0EB',
         cream2: '#EFE7DE',
+        forest: '#2D4132',
         ash: '#807468',
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"EB Garamond"', 'Georgia', 'serif'],
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
