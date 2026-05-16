@@ -11,7 +11,7 @@ const navItems = [
 export default function App() {
   const location = useLocation();
   return (
-    <div className="relative min-h-screen flex flex-col bg-ink text-cream">
+    <div className="relative min-h-screen flex flex-col bg-cream text-ink">
       <div className="grain" />
       <header className="relative z-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
@@ -26,7 +26,7 @@ export default function App() {
                 end={item.to === '/'}
                 className={({ isActive }) =>
                   `relative pb-1 transition-colors ${
-                    isActive ? 'text-cream' : 'text-cream/55 hover:text-cream'
+                    isActive ? 'text-ink' : 'text-ink/55 hover:text-ink'
                   }`
                 }
               >
@@ -36,7 +36,7 @@ export default function App() {
                     {isActive && (
                       <motion.span
                         layoutId="nav-underline"
-                        className="absolute left-0 right-0 -bottom-0.5 h-px bg-cream"
+                        className="absolute left-0 right-0 -bottom-0.5 h-px bg-ink"
                         transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -62,17 +62,24 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <footer className="relative z-20 border-t border-cream/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-ultra text-cream/50">
-          <span>© {new Date().getFullYear()} IROfit · irofit.fr</span>
-          <span className="font-display normal-case tracking-normal text-xs italic text-cream/65">
-            Three Beats. One Rhythm.
+      <footer className="relative z-20 border-t border-ink/10">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-ultra text-ink/55">
+          <a
+            href="https://www.instagram.com/iro.fit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-ink transition-colors"
+          >
+            @iro.fit
+          </a>
+          <span className="font-display normal-case tracking-normal text-sm italic text-ink/70">
+            Octobre 2026
           </span>
           <a
-            href="mailto:team@irofit.fr"
-            className="hover:text-cream transition-colors"
+            href="mailto:rim@irofit.fr"
+            className="hover:text-ink transition-colors normal-case tracking-normal text-sm"
           >
-            team@irofit.fr
+            rim@irofit.fr
           </a>
         </div>
       </footer>

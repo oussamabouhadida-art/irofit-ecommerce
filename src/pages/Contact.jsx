@@ -24,9 +24,9 @@ export default function Contact() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[11px] uppercase tracking-ultra text-cream/55"
+            className="text-[11px] uppercase tracking-ultra text-ink/55"
           >
-            Contact — Stay close
+            Contact — Reste proche
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -34,14 +34,19 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.08 }}
             className="mt-8 font-display text-5xl md:text-6xl font-normal leading-[1.05]"
           >
-            Write to us.
+            Écris-nous.
             <br />
-            <em className="italic font-light text-cream/75">We answer slowly.</em>
+            <em className="italic font-light text-ink/70">On répond lentement.</em>
           </motion.h1>
 
-          <div className="mt-12 space-y-6 text-cream/70 text-sm leading-relaxed">
+          <div className="mt-12 space-y-6 text-ink/70 text-sm leading-relaxed">
             <Row label="Email">
-              <a href="mailto:team@irofit.fr" className="hover:text-cream transition-colors">
+              <a href="mailto:rim@irofit.fr" className="hover:text-ink transition-colors">
+                rim@irofit.fr
+              </a>
+            </Row>
+            <Row label="Équipe">
+              <a href="mailto:team@irofit.fr" className="hover:text-ink transition-colors">
                 team@irofit.fr
               </a>
             </Row>
@@ -50,13 +55,13 @@ export default function Contact() {
                 href="https://www.instagram.com/iro.fit/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cream transition-colors"
+                className="hover:text-ink transition-colors"
               >
                 @iro.fit ↗
               </a>
             </Row>
             <Row label="Atelier">Paris · Casablanca</Row>
-            <Row label="Hours">Mon — Fri · 09:00 — 18:00 CET</Row>
+            <Row label="Horaires">Lun — Ven · 09:00 — 18:00 CET</Row>
           </div>
         </div>
 
@@ -65,10 +70,10 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="border-t border-cream/15 pt-10"
+            className="border-t border-ink/15 pt-10"
           >
-            <p className="text-[10px] uppercase tracking-ultra text-cream/45 mb-6">
-              Be among the first
+            <p className="text-[10px] uppercase tracking-ultra text-ink/45 mb-6">
+              Sois parmi les premiers
             </p>
 
             <AnimatePresence mode="wait">
@@ -81,33 +86,34 @@ export default function Contact() {
                   className="space-y-6"
                 >
                   <label className="block">
-                    <span className="text-[10px] uppercase tracking-ultra text-cream/45">
-                      Your email
+                    <span className="text-[10px] uppercase tracking-ultra text-ink/45">
+                      Ton email
                     </span>
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="you@everywhere.com"
-                      className="mt-2 w-full bg-transparent border-b border-cream/25 focus:border-cream outline-none py-3 text-lg placeholder:text-cream/30 transition-colors"
+                      placeholder="ton@email.com"
+                      className="mt-2 w-full bg-transparent border-b border-ink/25 focus:border-ink outline-none py-3 text-lg placeholder:text-ink/30 transition-colors"
                     />
                   </label>
                   <label className="block">
-                    <span className="text-[10px] uppercase tracking-ultra text-cream/45">
-                      A note (optional)
+                    <span className="text-[10px] uppercase tracking-ultra text-ink/45">
+                      Un mot (optionnel)
                     </span>
                     <textarea
                       rows={3}
-                      placeholder="Anything you'd like us to know."
-                      className="mt-2 w-full bg-transparent border-b border-cream/25 focus:border-cream outline-none py-3 text-base placeholder:text-cream/30 resize-none transition-colors"
+                      placeholder="Tout ce que tu veux qu'on sache."
+                      className="mt-2 w-full bg-transparent border-b border-ink/25 focus:border-ink outline-none py-3 text-base placeholder:text-ink/30 resize-none transition-colors"
                     />
                   </label>
                   <button
                     type="submit"
-                    className="mt-4 inline-flex items-center gap-3 text-[11px] uppercase tracking-ultra px-7 py-4 border border-cream/30 hover:border-cream hover:bg-cream hover:text-ink transition-colors duration-500"
+                    className="mt-4 inline-flex items-center gap-3 text-[11px] uppercase tracking-ultra px-7 py-4 text-cream transition-colors duration-300 hover:opacity-90"
+                    style={{ background: '#2D4132' }}
                   >
-                    Send
+                    Envoyer
                     <span aria-hidden>→</span>
                   </button>
                 </motion.form>
@@ -120,10 +126,10 @@ export default function Contact() {
                   className="py-6"
                 >
                   <p className="font-display text-3xl md:text-4xl font-normal leading-snug">
-                    Thank you. <em className="italic font-light text-cream/75">We've heard you.</em>
+                    Merci. <em className="italic font-light text-ink/70">À octobre.</em>
                   </p>
-                  <p className="mt-4 text-cream/65 text-sm leading-relaxed">
-                    We'll write back when the first chapter is ready — October 2026.
+                  <p className="mt-4 text-ink/65 text-sm leading-relaxed">
+                    On revient vers toi quand le premier chapitre est prêt — octobre 2026.
                   </p>
                 </motion.div>
               )}
@@ -137,8 +143,8 @@ export default function Contact() {
 
 function Row({ label, children }) {
   return (
-    <div className="grid grid-cols-12 gap-4 border-b border-cream/10 pb-5">
-      <div className="col-span-4 text-[10px] uppercase tracking-ultra text-cream/45 pt-1">
+    <div className="grid grid-cols-12 gap-4 border-b border-ink/10 pb-5">
+      <div className="col-span-4 text-[10px] uppercase tracking-ultra text-ink/45 pt-1">
         {label}
       </div>
       <div className="col-span-8">{children}</div>
