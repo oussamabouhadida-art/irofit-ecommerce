@@ -133,7 +133,7 @@ export default function Newsletter() {
 //      du subscriber + le prénom, et l'option "Reply" répond directement
 //      au subscriber.
 // ─────────────────────────────────────────────────────────────────────────────
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xbdwnqka';
 
 function SignupForm() {
   const [email, setEmail] = useState('');
