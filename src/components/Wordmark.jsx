@@ -17,8 +17,8 @@ export default function Wordmark({
 
   const content = (
     <>
-      <span className="font-normal">IRO</span>
-      <span className="italic font-light">fit</span>
+      <span className="font-normal lowercase">iro</span>
+      <span className="italic font-light lowercase">fit</span>
     </>
   );
 

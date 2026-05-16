@@ -5,8 +5,12 @@ import Wordmark from './components/Wordmark.jsx';
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
+  { to: '/newsletter', label: 'Newsletter' },
   { to: '/contact', label: 'Contact' },
 ];
+
+const INSTAGRAM_URL =
+  'https://www.instagram.com/iro.fit?igsh=MWJvMnBlenQ5NDh4dg%3D%3D&utm_source=qr';
 
 export default function App() {
   const location = useLocation();
@@ -65,7 +69,7 @@ export default function App() {
       <footer className="relative z-20 border-t border-ink/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-ultra text-ink/55">
           <a
-            href="https://www.instagram.com/iro.fit/"
+            href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-ink transition-colors"
@@ -76,10 +80,10 @@ export default function App() {
             Octobre 2026
           </span>
           <a
-            href="mailto:rim@irofit.fr"
+            href="mailto:team@irofit.fr"
             className="hover:text-ink transition-colors normal-case tracking-normal text-sm"
           >
-            rim@irofit.fr
+            team@irofit.fr
           </a>
         </div>
       </footer>

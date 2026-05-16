@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const INSTAGRAM_URL =
+  'https://www.instagram.com/iro.fit?igsh=MWJvMnBlenQ5NDh4dg%3D%3D&utm_source=qr';
+
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [email, setEmail] = useState('');
@@ -41,18 +44,13 @@ export default function Contact() {
 
           <div className="mt-12 space-y-6 text-ink/70 text-sm leading-relaxed">
             <Row label="Email">
-              <a href="mailto:rim@irofit.fr" className="hover:text-ink transition-colors">
-                rim@irofit.fr
-              </a>
-            </Row>
-            <Row label="Équipe">
               <a href="mailto:team@irofit.fr" className="hover:text-ink transition-colors">
                 team@irofit.fr
               </a>
             </Row>
             <Row label="Instagram">
               <a
-                href="https://www.instagram.com/iro.fit/"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-ink transition-colors"
@@ -60,7 +58,6 @@ export default function Contact() {
                 @iro.fit ↗
               </a>
             </Row>
-            <Row label="Atelier">Paris · Casablanca</Row>
             <Row label="Horaires">Lun — Ven · 09:00 — 18:00 CET</Row>
           </div>
         </div>

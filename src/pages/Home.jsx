@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Signature } from '../components/Wordmark.jsx';
 
+const INSTAGRAM_URL =
+  'https://www.instagram.com/iro.fit?igsh=MWJvMnBlenQ5NDh4dg%3D%3D&utm_source=qr';
+
 const universes = [
   {
     id: 'flow',
     title: 'FLOW',
-    emoji: '🌊',
     description: 'Mouvement doux. Intentionnel. Pour tous.',
     sub: 'Pilates, yoga, bien-être.',
-    products: ['Chaussettes', 'Anneau', 'Bandes', 'Balle', 'Sac'],
+    products: ['Tote bag', 'Chaussettes avec grip', 'Bandes de résistance'],
     accent: '#2D4132', // forest
     accentName: 'Vert forêt',
     onDark: true,
@@ -17,9 +19,8 @@ const universes = [
   {
     id: 'fire',
     title: 'FIRE',
-    emoji: '🔥',
     description: 'Mouvement puissant. Intense. Pour tous.',
-    sub: 'CrossFit, musculation, force.',
+    sub: 'Musculation, force.',
     products: ['Corde à sauter', 'Grips', 'Protège poignet'],
     accent: '#1A1612', // ink
     accentName: 'Noir chaud',
@@ -28,7 +29,6 @@ const universes = [
   {
     id: 'joy',
     title: 'JOY',
-    emoji: '🎉',
     description: 'Enfants & famille.',
     sub: 'Printemps 2027.',
     products: ['À révéler'],
@@ -157,7 +157,7 @@ export default function Home() {
               Suis <em className="italic font-light">@iro.fit</em>
             </h2>
             <a
-              href="https://www.instagram.com/iro.fit/"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[11px] uppercase tracking-ultra text-ink/55 hover:text-ink transition-colors"
@@ -199,11 +199,7 @@ function UniverseCard({ u, index }) {
           0{index + 1} · IROfit {u.title.charAt(0) + u.title.slice(1).toLowerCase()}
         </span>
 
-        <div className="text-5xl md:text-6xl mb-5" aria-hidden>
-          {u.emoji}
-        </div>
-
-        <h3 className="font-display italic font-normal text-5xl md:text-6xl leading-none">
+        <h3 className="mt-10 font-display italic font-normal text-5xl md:text-6xl leading-none">
           {u.title.toLowerCase().charAt(0).toUpperCase() + u.title.toLowerCase().slice(1)}
         </h3>
       </div>
@@ -334,7 +330,7 @@ function InstagramTile({ index }) {
 
   return (
     <a
-      href="https://www.instagram.com/iro.fit/"
+      href={INSTAGRAM_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="relative aspect-square block overflow-hidden group"
