@@ -121,23 +121,66 @@ export default function Newsletter() {
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// FORMSPREE SETUP (3 minutes, no backend):
+//   1. Aller sur https://formspree.io et créer un compte avec team@irofit.fr
+//   2. Créer un nouveau form, nommé "Newsletter irofit"
+//   3. Copier le form ID (ex. xnqkdbqr) et le coller ci-dessous
+//   4. Commit + push → auto-deploy
+//   5. La 1ère soumission déclenche un email de confirmation Formspree
+//      à team@irofit.fr — cliquer le lien pour activer
+//   6. Ensuite, chaque inscription arrive à team@irofit.fr avec l'email
+//      du subscriber + le prénom, et l'option "Reply" répond directement
+//      au subscriber.
+// ─────────────────────────────────────────────────────────────────────────────
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
 function SignupForm() {
   const [email, setEmail] = useState('');
   const [first, setFirst] = useState('');
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(null);
 
-  // TODO: brancher Mailchimp / Brevo
-  // Remplacer onSubmit par un POST vers l'URL d'action du form (Mailchimp)
-  // ou une fonction serverless qui appelle l'API Brevo.
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-    if (!email) return;
+    if (!email || sending) return;
+
+    setSending(true);
+    setError(null);
+
+    // Backup local (au cas où Formspree échoue, on ne perd pas l'email)
     try {
       const list = JSON.parse(localStorage.getItem('irofit:waitlist') || '[]');
       list.push({ email, first, at: new Date().toISOString(), source: 'newsletter' });
       localStorage.setItem('irofit:waitlist', JSON.stringify(list));
     } catch {}
-    setSent(true);
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          first,
+          _replyto: email,
+          _subject: 'Nouvelle inscription newsletter — irofit.fr',
+        }),
+      });
+
+      if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+      setSent(true);
+    } catch (err) {
+      console.error(err);
+      setError(
+        "Souci d'envoi. Réessaie dans une minute, ou écris-nous à team@irofit.fr."
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -178,14 +221,22 @@ function SignupForm() {
             </label>
           </div>
 
-          <button
-            type="submit"
-            className="mt-2 inline-flex items-center gap-3 text-[11px] uppercase tracking-ultra px-8 py-4 text-cream transition-colors duration-300 hover:opacity-90"
-            style={{ background: '#2D4132' }}
-          >
-            Rejoindre le cercle
-            <span aria-hidden>→</span>
-          </button>
+          <div className="flex flex-col gap-3">
+            <button
+              type="submit"
+              disabled={sending}
+              className="mt-2 self-start inline-flex items-center gap-3 text-[11px] uppercase tracking-ultra px-8 py-4 text-cream transition-all duration-300 hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed"
+              style={{ background: '#2D4132' }}
+            >
+              {sending ? 'Envoi…' : 'Rejoindre le cercle'}
+              {!sending && <span aria-hidden>→</span>}
+            </button>
+            {error && (
+              <p className="text-sm text-red-700/80" role="alert">
+                {error}
+              </p>
+            )}
+          </div>
         </motion.form>
       ) : (
         <motion.div
